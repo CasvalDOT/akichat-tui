@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/akichat/core"
-	"github.com/akichat/tui/views"
+	core "github.com/CasvalDOT/akichat-core"
+	"github.com/CasvalDOT/akichat-tui/views"
 	tea "github.com/charmbracelet/bubbletea"
 )
 

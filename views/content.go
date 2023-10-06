@@ -5,9 +5,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/akichat/core"
-	chat "github.com/akichat/core"
-	"github.com/akichat/tui/models"
+	core "github.com/CasvalDOT/akichat-core"
+	"github.com/CasvalDOT/akichat-tui/models"
 
 	"github.com/charmbracelet/bubbles/textarea"
 	"github.com/charmbracelet/bubbles/viewport"
@@ -20,14 +19,14 @@ type (
 )
 
 type modelState struct {
-	messages      []chat.Message
+	messages      []core.Message
 	lastMessageID string
 }
 
 type model struct {
 	state             modelState
 	sub               chan msgMessage
-	chat              chat.Chat
+	chat              core.Chat
 	viewport          viewport.Model
 	textarea          textarea.Model
 	headerStyle       lipgloss.Style
@@ -40,7 +39,7 @@ type model struct {
 }
 
 type msgMessage struct {
-	messages []chat.Message
+	messages []core.Message
 }
 
 func initTextarea() textarea.Model {
@@ -69,12 +68,12 @@ func initViewport() viewport.Model {
 func initialModel() model {
 	ta := initTextarea()
 	vp := initViewport()
-	c := chat.NewChat(core.ChatTypeHentakihabara)
+	c := core.NewChat(core.ChatTypeHentakihabara)
 
 	return model{
 		sub: make(chan msgMessage),
 		state: modelState{
-			messages:      []chat.Message{},
+			messages:      []core.Message{},
 			lastMessageID: "0",
 		},
 		chat:          c,

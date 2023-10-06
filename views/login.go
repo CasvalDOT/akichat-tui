@@ -3,7 +3,7 @@ package views
 import (
 	"strings"
 
-	"github.com/akichat/core"
+	core "github.com/CasvalDOT/akichat-core"
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 )
